@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TODO';
+  title: string = 'TODO';
+  todos: {id: number, text: string}[] = [];
+  newTask = new FormControl('');
+  counter: number = 0;
+
+  addItem() {
+    this.todos.push({
+      id: this.counter++,
+      text: this.newTask.value
+    });
+  }
+
+  deleteFromList(id: number|null) {
+    this.todos = this.todos.filter((todo) => todo.id !== id);
+  }
 }
