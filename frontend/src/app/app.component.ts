@@ -12,7 +12,8 @@ export class AppComponent {
   newTask = new FormControl('');
   counter: number = 0;
 
-  addItem() {
+  addItem(e: Event) {
+    e.preventDefault();
     this.todos.push({
       id: this.counter++,
       text: this.newTask.value

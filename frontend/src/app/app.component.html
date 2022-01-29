@@ -1,45 +1,25 @@
-<nav class="flex items-center justify-between flex-wrap bg-yellow-500 p-6 max-w-2xl">
-  <div class="flex items-center flex-shrink-0 text-white mr-6">
-    <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"></svg>
-    <span class="font-semibold text-xl tracking-tight">TODO</span>
-  </div>
-  <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+<div class="max-w-2xl m-auto">
+  <nav class="flex-row items-center justify-between flex-wrap bg-yellow-500 px-4 py-6 w-full h-20">  
+    <span class="font-semibold text-xl tracking-tight float-left">TODO</span>
+    <button class="float-right inline-block text-sm px-4 py-2 leading-none rounded text-black border-black border-2 hover:border-transparent hover:text-black hover:bg-white">
+      +
     </button>
-  </div>
-  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div class="text-sm lg:flex-grow">
-      <!-- <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Docs
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        Examples
-      </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-        Blog
-      </a> -->
-    </div>
+  </nav>
+
+  <div class="w-full" role="main">
+    <!-- <app-todo-list></app-todo-list> -->
     <div>
-      <button (click)="addItem()" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-black hover:bg-white mt-4 lg:mt-0">
-        +
+    <form class="p-4">
+      <input type="text" placeholder="Enter a todo here" [formControl]="newTask" class="border-2 rounded border-black w-full p-2"/>
+      <br />
+      <button (click)="addItem($event)" class="mt-4 float-right inline-block text-sm px-4 py-2 font-semibold leading-none border-2 rounded text-black border-black hover:border-transparent hover:text-black hover:bg-white">
+        Add
       </button>
+    </form>
+    <div *ngFor="let todo of todos">
+      <app-todo-list-item [text]="todo.text" [id]="todo.id" (deleteEvent)="deleteFromList($event)"></app-todo-list-item>
     </div>
   </div>
-</nav>
 
-
-<div class="max-w-2xl" role="main">
-  <!-- <app-todo-list></app-todo-list> -->
-  <form>
-    <label for="newTask">New Task: </label>
-    <input type="text" placeholder="enter todo here" [formControl]="newTask"/>
-  </form>
-  <div *ngFor="let todo of todos">
-    <app-todo-list-item [text]="todo.text" [id]="todo.id" (deleteEvent)="deleteFromList($event)"></app-todo-list-item>
-  </div>
-  
-  <!-- <p class="text-red-500">todo-list works!</p> -->
+  <router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>
