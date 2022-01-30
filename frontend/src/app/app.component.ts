@@ -11,6 +11,7 @@ export class AppComponent {
   todos: {id: number, text: string}[] = [];
   newTask = new FormControl('');
   counter: number = 0;
+  showForm: boolean = false;
 
   addItem(e: Event) {
     e.preventDefault();
@@ -22,5 +23,9 @@ export class AppComponent {
 
   deleteFromList(id: number|null) {
     this.todos = this.todos.filter((todo) => todo.id !== id);
+  }
+
+  toggleShowForm() {
+    this.showForm = !this.showForm;
   }
 }

@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* twc stands for tailwind custom */
+  .twc-button {
+    @apply text-sm px-4 py-2 font-semibold leading-none rounded text-black  hover:bg-white;
+  }
+}
