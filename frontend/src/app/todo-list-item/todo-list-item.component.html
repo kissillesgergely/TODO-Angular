@@ -1,6 +1,10 @@
-<div class="w-full h-12 px-4">
-  <span>{{ id }}. {{ text }}</span>
-  <button class="twc-button bg-red-500 hover:bg-red-700 float-right" (click)="delete()">
-    Delete
-  </button>
+<div class="w-full my-4 px-4 grid grid-cols-4">
+  <div class="col-span-3">
+    <span class="float-left">{{ text }}</span>
+  </div>
+  <div class="col-span-1">
+    <button class="float-right twc-button bg-red-500 hover:bg-red-700" (click)="delete()">
+      Delete
+    </button>
+  </div>
 </div>

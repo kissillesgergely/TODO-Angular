@@ -1,4 +1,6 @@
-<div>
-    <p class="text-red-900">todo-list works!</p>
+<div class="mt-4 grid grid-cols-1 divide-y">
+  <div *ngFor="let todo of todos" class="col-span-1">
+    <app-todo-list-item class="w-full" [text]="todo.text" [id]="todo.id" (deleteEvent)="deleteTransmitter($event)">
+  </app-todo-list-item>
 </div>
 

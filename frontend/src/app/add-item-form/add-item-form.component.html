@@ -1,0 +1,16 @@
+<div class="w-full">
+  <div class="h-32">
+    <form class="p-4">
+      <input 
+        type="text"
+        placeholder="Enter a todo here" [formControl]="newTask"
+        class="border-2 rounded border-black w-full p-2"
+      />
+      <div id="buttonbox" class="w-full">
+        <button (click)="addItem($event)" class="twc-button mt-4 bg-yellow-400 float-right">
+          Add
+        </button>
+      </div>
+    </form>
+  </div>  
+</div>

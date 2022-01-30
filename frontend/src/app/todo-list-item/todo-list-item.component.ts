@@ -18,5 +18,4 @@ export class TodoListItemComponent implements OnInit {
   delete() {
     this.deleteEvent.emit(this.id);
   }
-
 }
