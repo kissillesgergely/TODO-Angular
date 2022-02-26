@@ -1,7 +1,6 @@
 # TODO
 
-This application is WIP.
-This is a little frontend TODO app, which was built with Angular and shows some data transfer between components
+This app was created as a little practice with Angular and tailwind.
 
 ## Development server
 
